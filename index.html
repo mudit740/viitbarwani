@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIIT Barwani - Vivekanand Institute of Information Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #ff6f00;
+            --accent: #00bcd4;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --gray: #6C757D;
+            --success: #4caf50;
+            --warning: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255,255,255,0.3);
+            transform: rotate(20deg);
+            transition: all 0.8s;
+        }
+
+        .btn:hover:after {
+            left: 120%;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #002147;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        section {
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.5s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 15px;
+            font-weight: 700;
+            transition: all 0.5s ease;
+        }
+
+        header.scrolled .logo-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.5s ease;
+        }
+
+        header.scrolled .logo-text {
+            font-size: 1.3rem;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        /* Notification Popup */
+        .notification-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .notification-popup.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .notification-header {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 20px 25px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .close-popup {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-popup:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .notification-body {
+            padding: 25px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .notification-item {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .notification-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .notification-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .notification-item p {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .notification-date {
+            display: inline-block;
+            background: #e6f0ff;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .notification-footer {
+            padding: 15px 25px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .notification-footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .admin-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-5px) rotate(15deg);
+        }
+
+        .admin-login {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            padding: 30px;
+        }
+
+        .admin-login.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .admin-login h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+            outline: none;
+        }
+
+        .admin-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 51, 102, 0.7) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+            position: relative;
+        }
+
+        .about:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="%23003366" fill-opacity="0.05" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: all 0.5s ease;
+        }
+
+        .about-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .hindi-text {
+            font-family: 'Arial', sans-serif;
+            background: rgba(0, 51, 102, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .stat-item .label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Courses Section */
+        .courses {
+            position: relative;
+        }
+
+        .courses:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .course-content {
+            padding: 25px;
+            position: relative;
+        }
+
+        .course-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .course-card:hover .course-content h3 {
+            color: var(--secondary);
+        }
+
+        .course-duration {
+            display: flex;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .course-duration i {
+            margin-right: 8px;
+        }
+
+        .course-highlights {
+            margin-top: 15px;
+        }
+
+        .course-highlights ul {
+            padding-left: 20px;
+        }
+
+        .course-highlights li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .course-highlights li:before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Facilities Section */
+        .facilities {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facilities:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .facilities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .facility-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .facility-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover .facility-icon {
+            transform: rotateY(180deg);
+        }
+
+        .facility-card h3 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(0, 51, 102, 0.02) 100%);
+            position: relative;
+        }
+
+        .contact:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="%23003366" fill-opacity="0.05" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail:hover .contact-icon {
+            background: var(--primary);
+            transform: rotate(15deg);
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+
+        .map {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .map:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links h4:hover:after {
+            width: 80px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact-info li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-contact-info i {
+            color: var(--secondary);
+            margin-right: 10px;
+            min-width: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact-info li:hover i {
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Admin Dashboard */
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .admin-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .admin-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .admin-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .admin-nav a:hover, .admin-nav a.active {
+            background: var(--secondary);
+        }
+
+        .admin-content {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .admin-content.active {
+            display: block;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .admin-table th, .admin-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .admin-table th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        .admin-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+            font-size: 0.85rem;
+        }
+
+        .edit-btn {
+            background: var(--accent);
+            color: white;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .notification-editor {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .logout-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .admin-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: left 0.3s;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .notification-popup {
+                width: 95%;
+            }
+            
+            .admin-header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* New Elements */
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn a:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(100px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .chatbot-container.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h4 {
+            color: white;
+            margin: 0;
+        }
+
+        .close-chatbot {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-chatbot:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bot {
+            background: #f1f1f1;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-input input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .chatbot-input button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background: #e55a2b;
+            transform: rotate(15deg);
+        }
+
+        .chatbot-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-5px) rotate(15deg);
+        }
+
+        /* Notification Bell */
+        .notification-bell {
+            position: relative;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .notification-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Review Button */
+        .review-btn {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Animated Elements */
+        .animated {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animated.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Public Website -->
+    <div id="public-website">
+        <!-- Notification Popup -->
+        <div class="notification-popup">
+            <div class="notification-header">
+                <h3><i class="fas fa-bell"></i> Important Announcements</h3>
+                <button class="close-popup">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="notification-body">
+                <!-- Notifications will be loaded dynamically -->
+            </div>
+            <div class="notification-footer">
+                <p><i class="fas fa-info-circle"></i> Visit admin office for more information</p>
+            </div>
+        </div>
+        
+        <!-- Overlay for popup -->
+        <div class="overlay"></div>
+        
+        <!-- Admin Login -->
+        <div class="admin-login">
+            <h3><i class="fas fa-lock"></i> Admin Login</h3>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter admin username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+            </div>
+            <div class="admin-actions">
+                <button class="btn btn-secondary" id="cancel-admin">Cancel</button>
+                <button class="btn btn-primary" id="login-admin">Login</button>
+            </div>
+        </div>
+        
+        <!-- Admin Panel Button -->
+        <div class="admin-panel">
+            <button class="admin-btn" id="admin-button">
+                <i class="fas fa-user-cog"></i>
+            </button>
+        </div>
+        
+        <!-- WhatsApp Button -->
+        <div class="whatsapp-btn">
+            <a href="https://wa.me/919893561821" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        
+        <!-- Chatbot -->
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h4>VIIT Assistant</h4>
+                <button class="close-chatbot"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="chat-message bot">
+                    Hello! I'm VIIT Assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message...">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chatbot-btn">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        
+        <!-- Header -->
+        <header id="main-header">
+            <div class="container header-container">
+                <div class="logo">
+                    <div class="logo-icon">V</div>
+                    <div class="logo-text">VIIT <span>Barwani</span></div>
+                </div>
+                
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content animated">
+                <h1>Vivekanand Institute of Information Technology</h1>
+                <p>Empowering students with cutting-edge IT education in the heart of Barwani, Madhya Pradesh</p>
+                <div class="hero-btns">
+                    <a href="#courses" class="btn btn-primary">Explore Courses</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About VIIT Barwani</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-img animated">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="VIIT Campus">
+                    </div>
+                    <div class="about-text animated">
+                        <h3>Premier Technical Institute Since 2001</h3>
+                        <p>Vivekanand Institute of Information Technology (VIIT) is a distinguished technical institute located in Barwani, Madhya Pradesh. Affiliated with Makhanlal Chaturvedi National University and AICTE approved, we're dedicated to nurturing innovative minds through quality education in information technology and allied fields.</p>
+                        <p>Our mission is to become a premier center for technical excellence, contributing significantly to the nation's knowledge economy through cutting-edge education and industry collaboration. We emphasize innovation, practical learning, and ethical values to develop well-rounded IT professionals.</p>
+                        
+                        <div class="hindi-text">
+                            <p>पिछले 20+ वर्षों से VIIT हजारों छात्रों को BCA, PGDCA, DCA, M.Sc(CS), B.Com(CA), Tally जैसे job-oriented courses के माध्यम से एक सफल करियर की दिशा दे रहा है।</p>
+                            <p>हमारा Vision: किसी भी stream या background के students को digital रूप से empower करना।</p>
+                            <p>🎓 हर साल हमारे यहां से 1000+ छात्र pass होकर सरकारी व प्राइवेट क्षेत्रों में जॉब प्राप्त करते हैं।</p>
+                        </div>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="number">20+</div>
+                                <div class="label">Years of Excellence</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="number">1000+</div>
+                                <div class="label">Students Trained</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="number">125+</div>
+                                <div class="label">Computer Systems</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="number">95%</div>
+                                <div class="label">Placement Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="courses" id="courses">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Courses</h2>
+                    <p>Industry-relevant programs designed for the IT leaders of tomorrow</p>
+                </div>
+                
+                <div class="courses-grid">
+                    <!-- Courses will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section class="facilities" id="facilities">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Facilities</h2>
+                    <p>State-of-the-art infrastructure for an enhanced learning experience</p>
+                </div>
+                
+                <div class="facilities-container">
+                    <!-- Facilities will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch for admissions and inquiries</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>VIIT Barwani Campus</h3>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>Behind Mahila Hospital, Rajendra Marg<br>Barwani, Madhya Pradesh 451551</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>Mobile: +91 98935 61821</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>viitbarwani2k10@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.387527288784!2d74.89991921491674!3d22.03216518429589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962a2d4b0a7e4e5%3A0x9c5d6f3c4d7e4f1d!2sBarwani%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form id="inquiry-form">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" placeholder="Your Phone">
+                            </div>
+                            <div class="form-group">
+                                <select id="course" required>
+                                    <option value="" disabled selected>Select Course Interest</option>
+                                    <option>BCA</option>
+                                    <option>M.Sc (CS)</option>
+                                    <option>B.Com (CA)</option>
+                                    <option>PGDCA</option>
+                                    <option>DCA</option>
+                                    <option>Tally ERP with GST</option>
+                                    <option>CPCT Training</option>
+                                    <option>Basic Computer Course</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                        <div class="review-btn">
+                            <a href="https://g.page/r/CUGudtwONIOvEAE/review" target="_blank" class="btn btn-secondary">Leave a Review</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-about">
+                        <div class="footer-logo">VIIT <span>Barwani</span></div>
+                        <p>Affiliated with Makhanlal Chaturvedi National University, we're committed to excellence in IT education, research, and innovation to create future technology leaders.</p>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/vivekanand_institute_barwani?igsh=MXB6ZnQ0aDZyd2VmMQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com/@vivekanandinstitute4903?si=v6qzCXRQeypgMLni" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#courses">Courses</a></li>
+                            <li><a href="#facilities">Facilities</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Programs</h4>
+                        <ul>
+                            <li><a href="#">BCA</a></li>
+                            <li><a href="#">M.Sc (CS)</a></li>
+                            <li><a href="#">B.Com (CA)</a></li>
+                            <li><a href="#">PGDCA</a></li>
+                            <li><a href="#">DCA</a></li>
+                            <li><a href="#">Tally ERP with GST</a></li>
+                            <li><a href="#">CPCT Training</a></li>
+                            <li><a href="#">Basic Computer Course</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Contact Information</h4>
+                        <ul class="footer-contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> Behind Mahila Hospital, Rajendra Marg, Barwani, MP 451551</li>
+                            <li><i class="fas fa-mobile-alt"></i> +91 98935 61821</li>
+                            <li><i class="fas fa-envelope"></i> viitbarwani2k10@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2025 Vivekanand Institute of Information Technology, Barwani. All Rights Reserved. | Affiliated with Makhanlal Chaturvedi National University</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" style="display: none;">
+        <div class="admin-header">
+            <div class="admin-header-content">
+                <div class="admin-logo">VIIT Admin Dashboard</div>
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-target="dashboard">Dashboard</a></li>
+                        <li><a href="#" class="nav-link" data-target="notifications">Notifications</a></li>
+                        <li><a href="#" class="nav-link" data-target="inquiries">Inquiries</a></li>
+                    </ul>
+                </nav>
+                <button class="logout-btn" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+        
+        <div class="admin-container">
+            <!-- Dashboard -->
+            <div class="admin-content active" id="dashboard-content">
+                <h2>Admin Dashboard</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Total Notifications</h3>
+                        <p id="total-notifications">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>New Inquiries</h3>
+                        <p id="new-inquiries">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Courses</h3>
+                        <p id="active-courses">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Facilities</h3>
+                        <p id="total-facilities">0</p>
+                    </div>
+                </div>
+                
+                <h3>Recent Inquiries</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Course</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-inquiries">
+                        <!-- Recent inquiries will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Notification Management -->
+            <div class="admin-content" id="notifications-content">
+                <h2>Manage Notifications</h2>
+                <p>Edit the notifications that appear on the public website</p>
+                
+                <div id="notification-list">
+                    <!-- Notifications will be loaded here -->
+                </div>
+                
+                <div class="notification-editor">
+                    <h3>Add New Notification</h3>
+                    <div class="form-group">
+                        <label for="notification-title">Title</label>
+                        <input type="text" id="notification-title" placeholder="Enter notification title">
+                    </div>
+                    <div class="form-group">
+                        <label for="notification-content">Content</label>
+                        <textarea id="notification-content" placeholder="Enter notification content" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="notification-date">Date</label>
+                        <input type="date" id="notification-date">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" id="clear-notification">Clear</button>
+                        <button class="btn btn-primary" id="add-notification">Add Notification</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Inquiries Management -->
+            <div class="admin-content" id="inquiries-content">
+                <h2>Contact Form Inquiries</h2>
+                <p>Manage all inquiries submitted through the contact form</p>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Course</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inquiries-list">
+                        <!-- Inquiries will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data storage for notifications and inquiries
+        let notifications = [
+            {
+                id: 1,
+                title: "Practical Examinations",
+                content: "Final year practical examinations for BCA and M.Sc(CS) will be conducted on <strong>June 15-17, 2025</strong>. All students must report to their respective labs 30 minutes before the scheduled time.",
+                date: "June 10, 2025"
+            },
+            {
+                id: 2,
+                title: "Mid-Term Tests Schedule",
+                content: "Mid-term tests for all courses will begin on <strong>June 20, 2025</strong>. The detailed timetable is available at the administration office and on the student portal.",
+                date: "June 8, 2025"
+            },
+            {
+                id: 3,
+                title: "Admission Open for 2025-26",
+                content: "Admissions are now open for the academic year 2025-26 in all programs. Limited seats available. Apply online or visit our campus for more information.",
+                date: "June 5, 2025"
+            }
+        ];
+
+        let inquiries = [];
+        let courses = [
+            {
+                name: "BCA",
+                duration: "3 Years",
+                description: "Bachelor of Computer Applications",
+                eligibility: "12th Pass (Any Stream - Arts, Commerce, Science)",
+                highlights: [
+                    "Programming Fundamentals",
+                    "Web Development",
+                    "IT Careers Preparation",
+                    "Software Engineering"
+                ]
+            },
+            {
+                name: "M.Sc (CS)",
+                duration: "2 Years",
+                description: "Master of Science in Computer Science",
+                eligibility: "Graduate from any stream (preferably BCA, B.Sc, or equivalent)",
+                highlights: [
+                    "Advanced Programming",
+                    "Research Methodologies",
+                    "IT Jobs Preparation",
+                    "Data Science Fundamentals"
+                ]
+            },
+            {
+                name: "B.Com (CA)",
+                duration: "3 Years",
+                description: "Bachelor of Commerce with Computer Applications",
+                eligibility: "12th Pass (Any Stream)",
+                highlights: [
+                    "Accounting + Computer Skills",
+                    "Management Information Systems",
+                    "Business Applications",
+                    "Financial Software"
+                ]
+            },
+            {
+                name: "PGDCA",
+                duration: "1 Year",
+                description: "Post Graduate Diploma in Computer Applications",
+                eligibility: "Graduation (Any Stream)",
+                highlights: [
+                    "Government/Private Sector Jobs",
+                    "Freelancing Skills",
+                    "Office IT Skills",
+                    "Database Management"
+                ]
+            },
+            {
+                name: "DCA",
+                duration: "1 Year",
+                description: "Diploma in Computer Applications",
+                eligibility: "12th Pass (Any Stream)",
+                highlights: [
+                    "Basic to Intermediate Computer Skills",
+                    "Office Applications",
+                    "Internet Fundamentals",
+                    "CPCT Training Included"
+                ]
+            },
+            {
+                name: "Tally ERP with GST",
+                duration: "3-6 Months",
+                description: "",
+                eligibility: "12th Pass (Any Stream)",
+                highlights: [
+                    "Accounting Software Training",
+                    "Billing Systems",
+                    "Finance Sector Jobs",
+                    "GST Implementation"
+                ]
+            },
+            {
+                name: "CPCT Training",
+                duration: "Included in Course",
+                description: "Free with DCA/PGDCA",
+                eligibility: "Enrolled in DCA/PGDCA",
+                highlights: [
+                    "MP Govt Exam Preparation",
+                    "Typing Skills",
+                    "Computer Proficiency",
+                    "Government Job Readiness"
+                ]
+            },
+            {
+                name: "Basic Computer Course",
+                duration: "2-3 Months",
+                description: "",
+                eligibility: "School Students (9th Onwards - Any Stream)",
+                highlights: [
+                    "Typing Skills",
+                    "MS Office Applications",
+                    "Internet Fundamentals",
+                    "Email Basics"
+                ]
+            }
+        ];
+
+        let facilities = [
+            {
+                icon: "fas fa-laptop",
+                title: "Modern Computer Lab",
+                description: "125+ Systems with latest configurations"
+            },
+            {
+                icon: "fas fa-chalkboard-teacher",
+                title: "Digital Smart Classes",
+                description: "Interactive learning with modern teaching tools"
+            },
+            {
+                icon: "fas fa-book",
+                title: "Resource Library",
+                description: "Extensive collection of IT books and journals"
+            },
+            {
+                icon: "fas fa-users",
+                title: "Experienced Faculty",
+                description: "10-15 years experienced teaching professionals"
+            },
+            {
+                icon: "fas fa-tools",
+                title: "Free CPCT Training",
+                description: "Specialized training for government exams"
+            },
+            {
+                icon: "fas fa-file-alt",
+                title: "Mock Tests",
+                description: "Regular assessment and practice tests"
+            }
+        ];
+
+        // DOM Elements
+        const notificationPopup = document.querySelector('.notification-popup');
+        const overlay = document.querySelector('.overlay');
+        const closePopup = document.querySelector('.close-popup');
+        const adminButton = document.getElementById('admin-button');
+        const adminLogin = document.querySelector('.admin-login');
+        const cancelAdmin = document.getElementById('cancel-admin');
+        const loginAdmin = document.getElementById('login-admin');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        const notificationBody = document.querySelector('.notification-body');
+        const coursesGrid = document.querySelector('.courses-grid');
+        const facilitiesContainer = document.querySelector('.facilities-container');
+        const inquiryForm = document.getElementById('inquiry-form');
+        const publicWebsite = document.getElementById('public-website');
+        const adminDashboard = document.getElementById('admin-dashboard');
+        const logoutBtn = document.getElementById('logout-btn');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const adminContents = document.querySelectorAll('.admin-content');
+        const notificationList = document.getElementById('notification-list');
+        const inquiriesList = document.getElementById('inquiries-list');
+        const addNotificationBtn = document.getElementById('add-notification');
+        const clearNotificationBtn = document.getElementById('clear-notification');
+        const notificationTitle = document.getElementById('notification-title');
+        const notificationContent = document.getElementById('notification-content');
+        const notificationDate = document.getElementById('notification-date');
+        const recentInquiries = document.getElementById('recent-inquiries');
+        const notificationBell = document.querySelector('.notification-bell');
+        const notificationCount = document.querySelector('.notification-count');
+        const chatbotBtn = document.querySelector('.chatbot-btn');
+        const chatbotContainer = document.querySelector('.chatbot-container');
+        const closeChatbot = document.querySelector('.close-chatbot');
+        const chatMessages = document.querySelector('.chatbot-messages');
+        const chatInput = document.querySelector('.chatbot-input input');
+        const chatSendBtn = document.querySelector('.chatbot-input button');
+
+        // Initialize the application
+        function init() {
+            renderNotifications();
+            renderCourses();
+            renderFacilities();
+            updateStats();
+            attachEventListeners();
+            setupAnimations();
+        }
+
+        // Render notifications in the popup
+        function renderNotifications() {
+            notificationBody.innerHTML = '';
+            
+            notifications.forEach(notification => {
+                const notificationItem = document.createElement('div');
+                notificationItem.className = 'notification-item';
+                notificationItem.innerHTML = `
+                    <h4><i class="fas fa-exclamation-circle"></i> ${notification.title}</h4>
+                    <p>${notification.content}</p>
+                    <span class="notification-date">${notification.date}</span>
+                `;
+                notificationBody.appendChild(notificationItem);
+            });
+            
+            // Update notification count
+            notificationCount.textContent = notifications.length;
+            
+            // Update dashboard stats
+            document.getElementById('total-notifications').textContent = notifications.length;
+        }
+
+        // Render courses in the courses section
+        function renderCourses() {
+            coursesGrid.innerHTML = '';
+            
+            courses.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card';
+                
+                let highlightsHTML = '';
+                course.highlights.forEach(highlight => {
+                    highlightsHTML += `<li>${highlight}</li>`;
+                });
+                
+                courseCard.innerHTML = `
+                    <div class="course-header">
+                        <h3>${course.name}</h3>
+                        <p>${course.description}</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i> ${course.duration}
+                        </div>
+                        <p><strong>Eligibility:</strong> ${course.eligibility}</p>
+                        <div class="course-highlights">
+                            <ul>${highlightsHTML}</ul>
+                        </div>
+                    </div>
+                `;
+                
+                coursesGrid.appendChild(courseCard);
+            });
+            
+            // Update dashboard stats
+            document.getElementById('active-courses').textContent = courses.length;
+        }
+
+        // Render facilities in the facilities section
+        function renderFacilities() {
+            facilitiesContainer.innerHTML = '';
+            
+            facilities.forEach(facility => {
+                const facilityCard = document.createElement('div');
+                facilityCard.className = 'facility-card';
+                facilityCard.innerHTML = `
+                    <div class="facility-icon">
+                        <i class="${facility.icon}"></i>
+                    </div>
+                    <h3>${facility.title}</h3>
+                    <p>${facility.description}</p>
+                `;
+                
+                facilitiesContainer.appendChild(facilityCard);
+            });
+            
+            // Update dashboard stats
+            document.getElementById('total-facilities').textContent = facilities.length;
+        }
+
+        // Render notifications in admin dashboard
+        function renderAdminNotifications() {
+            notificationList.innerHTML = '';
+            
+            notifications.forEach(notification => {
+                const notificationItem = document.createElement('div');
+                notificationItem.className = 'notification-item';
+                notificationItem.innerHTML = `
+                    <h4>${notification.title} <span class="notification-date">${notification.date}</span></h4>
+                    <p>${notification.content}</p>
+                    <div class="form-actions">
+                        <button class="action-btn edit-btn" data-id="${notification.id}">Edit</button>
+                        <button class="action-btn delete-btn" data-id="${notification.id}">Delete</button>
+                    </div>
+                `;
+                notificationList.appendChild(notificationItem);
+            });
+            
+            // Add event listeners to action buttons
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', () => editNotification(btn.dataset.id));
+            });
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', () => deleteNotification(btn.dataset.id));
+            });
+        }
+
+        // Render inquiries in admin dashboard
+        function renderInquiries() {
+            inquiriesList.innerHTML = '';
+            
+            inquiries.forEach(inquiry => {
+                const inquiryRow = document.createElement('tr');
+                inquiryRow.innerHTML = `
+                    <td>${inquiry.name}</td>
+                    <td>${inquiry.email}</td>
+                    <td>${inquiry.phone}</td>
+                    <td>${inquiry.course}</td>
+                    <td>${inquiry.message.substring(0, 30)}...</td>
+                    <td>${new Date(inquiry.date).toLocaleDateString()}</td>
+                    <td>
+                        <button class="action-btn delete-btn" data-id="${inquiry.id}">Delete</button>
+                    </td>
+                `;
+                inquiriesList.appendChild(inquiryRow);
+            });
+            
+            // Render recent inquiries in dashboard
+            recentInquiries.innerHTML = '';
+            const recent = inquiries.slice(0, 5); // Get last 5 inquiries
+            
+            recent.forEach(inquiry => {
+                const inquiryRow = document.createElement('tr');
+                inquiryRow.innerHTML = `
+                    <td>${inquiry.name}</td>
+                    <td>${inquiry.email}</td>
+                    <td>${inquiry.phone}</td>
+                    <td>${inquiry.course}</td>
+                    <td>${new Date(inquiry.date).toLocaleDateString()}</td>
+                `;
+                recentInquiries.appendChild(inquiryRow);
+            });
+            
+            // Update dashboard stats
+            document.getElementById('new-inquiries').textContent = inquiries.length;
+        }
+
+        // Update dashboard statistics
+        function updateStats() {
+            document.getElementById('total-notifications').textContent = notifications.length;
+            document.getElementById('new-inquiries').textContent = inquiries.length;
+            document.getElementById('active-courses').textContent = courses.length;
+            document.getElementById('total-facilities').textContent = facilities.length;
+        }
+
+        // Edit notification
+        function editNotification(id) {
+            const notification = notifications.find(n => n.id == id);
+            if (notification) {
+                notificationTitle.value = notification.title;
+                notificationContent.value = notification.content;
+                // Format date for input field
+                const dateParts = notification.date.split(' ');
+                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                const monthIndex = monthNames.findIndex(m => m.startsWith(dateParts[0]));
+                const formattedDate = `${dateParts[2]}-${String(monthIndex + 1).padStart(2, '0')}-${dateParts[1].replace(',', '')}`;
+                notificationDate.value = formattedDate;
+                
+                // Change button to update
+                addNotificationBtn.textContent = "Update Notification";
+                addNotificationBtn.dataset.id = id;
+            }
+        }
+
+        // Delete notification
+        function deleteNotification(id) {
+            notifications = notifications.filter(n => n.id != id);
+            renderAdminNotifications();
+            renderNotifications(); // Update public view
+        }
+
+        // Add new notification
+        function addNotification() {
+            const title = notificationTitle.value.trim();
+            const content = notificationContent.value.trim();
+            const date = notificationDate.value;
+            
+            if (!title || !content || !date) {
+                alert("Please fill all fields");
+                return;
+            }
+            
+            // Format date
+            const dateObj = new Date(date);
+            const formattedDate = dateObj.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+            
+            // Check if updating existing notification
+            if (addNotificationBtn.dataset.id) {
+                const id = addNotificationBtn.dataset.id;
+                const notification = notifications.find(n => n.id == id);
+                if (notification) {
+                    notification.title = title;
+                    notification.content = content;
+                    notification.date = formattedDate;
+                }
+                
+                // Reset button
+                addNotificationBtn.textContent = "Add Notification";
+                delete addNotificationBtn.dataset.id;
+            } else {
+                // Create new notification
+                const newNotification = {
+                    id: notifications.length > 0 ? Math.max(...notifications.map(n => n.id)) + 1 : 1,
+                    title,
+                    content,
+                    date: formattedDate
+                };
+                
+                notifications.push(newNotification);
+            }
+            
+            // Reset form
+            notificationTitle.value = '';
+            notificationContent.value = '';
+            notificationDate.value = '';
+            
+            renderAdminNotifications();
+            renderNotifications(); // Update public view
+        }
+
+        // Clear notification form
+        function clearNotificationForm() {
+            notificationTitle.value = '';
+            notificationContent.value = '';
+            notificationDate.value = '';
+            
+            // Reset button if updating
+            if (addNotificationBtn.dataset.id) {
+                addNotificationBtn.textContent = "Add Notification";
+                delete addNotificationBtn.dataset.id;
+            }
+        }
+
+        // Handle contact form submission
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const course = document.getElementById('course').value;
+            const message = document.getElementById('message').value;
+            
+            const newInquiry = {
+                id: inquiries.length > 0 ? Math.max(...inquiries.map(i => i.id)) + 1 : 1,
+                name,
+                email,
+                phone,
+                course,
+                message,
+                date: new Date().toISOString()
+            };
+            
+            inquiries.push(newInquiry);
+            
+            // Send email notification
+            sendEmailNotification(newInquiry);
+            
+            // Reset form
+            inquiryForm.reset();
+            
+            // Show success message
+            alert("Your inquiry has been submitted successfully!");
+            
+            // Update dashboard
+            renderInquiries();
+            updateStats();
+        }
+
+        // Send email notification
+        function sendEmailNotification(inquiry) {
+            // In a real implementation, this would make an API call to send an email
+            console.log(`Email sent to: viitbarwani2k10@gmail.com
+        Subject: New Inquiry from VIIT Website
+        Content:
+        Name: ${inquiry.name}
+        Email: ${inquiry.email}
+        Phone: ${inquiry.phone}
+        Course: ${inquiry.course}
+        Message: ${inquiry.message}`);
+        }
+
+        // Admin login
+        function adminLoginHandler() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === 'viit2025') {
+                // Hide public website and show admin dashboard
+                publicWebsite.style.display = 'none';
+                adminDashboard.style.display = 'block';
+                
+                // Render admin content
+                renderAdminNotifications();
+                renderInquiries();
+                
+                // Close login popup
+                adminLogin.classList.remove('active');
+                overlay.classList.remove('active');
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+
+        // Admin logout
+        function adminLogout() {
+            publicWebsite.style.display = 'block';
+            adminDashboard.style.display = 'none';
+        }
+
+        // Switch admin content tabs
+        function switchTab(target) {
+            // Update active tab
+            navLinks.forEach(link => {
+                if (link.dataset.target === target) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Show target content
+            adminContents.forEach(content => {
+                if (content.id === `${target}-content`) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+
+        // Setup animations
+        function setupAnimations() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Chatbot functions
+        function addChatMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleChatInput() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addChatMessage(message, true);
+                chatInput.value = '';
+                
+                // Auto reply after delay
+                setTimeout(() => {
+                    autoReply(message);
+                }, 1000);
+            }
+        }
+
+        function autoReply(message) {
+            message = message.toLowerCase();
+            let reply = "I'm sorry, I didn't understand that. How can I assist you? You can ask about courses, admission, fee structure, placement, contact information, or institute timings.";
+            
+            if (message.includes('course') || message.includes('program')) {
+                reply = "We offer BCA, M.Sc (CS), B.Com (CA), PGDCA, DCA, Tally ERP with GST, CPCT Training, and Basic Computer Course. For more details, please visit our courses section.";
+            } else if (message.includes('contact') || message.includes('number') || message.includes('email') || message.includes('address')) {
+                reply = "You can contact us at 98935 61821 or email viitbarwani2k10@gmail.com. Our address is Behind Mahila Hospital, Rajendra Marg, Barwani, Madhya Pradesh 451551.";
+            } else if (message.includes('timing') || message.includes('open') || message.includes('close') || message.includes('time')) {
+                reply = "Our institute is open from 9:00 AM to 6:00 PM, Monday to Saturday.";
+            } else if (message.includes('admission') || message.includes('apply') || message.includes('join')) {
+                reply = "Admissions are open for the academic year 2025-26. Please visit our campus or call 98935 61821 for more information.";
+            } else if (message.includes('fee') || message.includes('cost')) {
+                reply = "Please contact our administration office for the fee structure of specific courses. You can call 98935 61821.";
+            } else if (message.includes('placement') || message.includes('job') || message.includes('career')) {
+                reply = "We have a placement record of 95%. Our students are placed in top IT companies and government sectors.";
+            }
+            
+            addChatMessage(reply, false);
+        }
+
+        // Attach all event listeners
+        function attachEventListeners() {
+            // Show notification popup on page load
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    notificationPopup.classList.add('active');
+                    overlay.classList.add('active');
+                }, 1500);
+            });
+            
+            // Close popup
+            closePopup.addEventListener('click', () => {
+                notificationPopup.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // Close popup when clicking on overlay
+            overlay.addEventListener('click', () => {
+                notificationPopup.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // Show admin login
+            adminButton.addEventListener('click', () => {
+                adminLogin.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            // Close admin login
+            cancelAdmin.addEventListener('click', () => {
+                adminLogin.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // Login functionality
+            loginAdmin.addEventListener('click', adminLoginHandler);
+            
+            // Mobile Menu Toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (nav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Smooth Scrolling for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    nav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('main-header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Contact form submission
+            inquiryForm.addEventListener('submit', handleInquirySubmit);
+            
+            // Admin logout
+            logoutBtn.addEventListener('click', adminLogout);
+            
+            // Admin navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchTab(link.dataset.target);
+                });
+            });
+            
+            // Add notification
+            addNotificationBtn.addEventListener('click', addNotification);
+            
+            // Clear notification form
+            clearNotificationBtn.addEventListener('click', clearNotificationForm);
+            
+            // Notification bell
+            notificationBell.addEventListener('click', () => {
+                notificationPopup.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            // Chatbot functionality
+            chatbotBtn.addEventListener('click', () => {
+                chatbotContainer.classList.toggle('active');
+            });
+            
+            closeChatbot.addEventListener('click', () => {
+                chatbotContainer.classList.remove('active');
+            });
+            
+            chatSendBtn.addEventListener('click', handleChatInput);
+            
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleChatInput();
+                }
+            });
+        }
+
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html>
